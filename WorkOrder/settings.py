@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@i2+fadi#c6d6gme$0yv&v1mr-mb93zzg!lrp6$x7r3m-1#yz^'
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "@i2+fadi#c6d6gme$0yv&v1mr-mb93zzg!lrp6$x7r3m-1#yz^")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get("DJANGO_DEBUG") == 1
 
-ALLOWED_HOSTS = ['web']
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOST", "localhost,127.0.0.1").split(",")
 
 
 # Application definition
@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'WorkOrder.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'workorder',
-        'HOST': '172.16.0.40',
-        'PORT': '3306',
-        'USER': 'workorder',
-        'PASSWORD': 'workorder',
+        'NAME': os.environ.get("DJANGO_DB_NAME", "workorder"),
+        'HOST': os.environ.get("DJANGO_DB_HOST", "127.0.0.1"),
+        'PORT': os.environ.get("DJANGO_DB_PORT", "3306"),
+        'USER': os.environ.get("DJANGO_DB_USER", "workorder"),
+        'PASSWORD': os.environ.get("DJANGO_DB_PASS", "workorder"),
     }
 }
 
@@ -111,7 +111,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = os.environ.get("DJANGO_TIMEZONE", "Asia/Kolkata")
 
 USE_I18N = True
 
