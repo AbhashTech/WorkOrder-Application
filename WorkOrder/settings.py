@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", "@i2+fadi#c6d6gme$0yv&v1mr-mb93zzg!lrp6$x7r3m-1#yz^")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DJANGO_DEBUG", "True")
+DEBUG = os.environ.get("DJANGO_DEBUG_APP", "True")
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOST", "localhost,127.0.0.1").split(",")
 
@@ -128,4 +128,3 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATIC_URL = '/static/'
 #STATICFILES_DIRS = [
 #    os.path.abspath(os.path.join(BASE_DIR, "static")),
-#]
