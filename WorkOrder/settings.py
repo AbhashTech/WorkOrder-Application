@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@i2+fadi#c6d6gme$0yv&v1mr-mb93zzg!lrp6$x7r3m-1#yz^'
+SECRET_KEY = [os.environ.get('DJANGO_SECRETS') if os.environ.get('DJANGO_SECRETS') else '@i2+fadi#c6d6gme$0yv&v1mr-mb93zzg!lrp6$x7r3m-1#yz^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = [os.environ.get('DJANGO_DEBUG')  if os.environ.get('DJANGO_DEBUG') else True
 
-ALLOWED_HOSTS = ['web']
+ALLOWED_HOSTS = [os.environ.get('DJANGO_ALLOWED_HOST') if os.environ.get('DJANGO_ALLOWED_HOST') else '127.0.0.1' ]
 
 
 # Application definition
@@ -128,4 +128,4 @@ STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, "static"))
 STATIC_URL = '/static/'
 #STATICFILES_DIRS = [
 #    os.path.abspath(os.path.join(BASE_DIR, "static")),
-#]
+
