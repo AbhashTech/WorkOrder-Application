@@ -1,15 +1,14 @@
 from django.db import models
 from django.utils import timezone
-from django.contrib.auth.models import Group
 
 
-class Groups(models.Model):
+class GroupsCustomer(models.Model):
     groupid = models.AutoField(db_column='groupid', primary_key=True)
     groupname = models.TextField(db_column='groupname', verbose_name="Group Name")
 
     class Meta:
-        db_table = 'groups'
-        verbose_name = "Groups"
+        db_table = 'custgroups'
+        verbose_name = "Customer Groups"
 
     def __str__(self):
         return self.groupname
@@ -25,7 +24,7 @@ class Customer(models.Model):
     NO = 'no'
     ACTIVE_CHOICE =  ((YES, 'Active'), (NO, 'Inactive'))
     custisactive = models.CharField(db_column='custIsActive', choices=ACTIVE_CHOICE, max_length=3, verbose_name='Customer\'s Status')  # Field name made lowercase.
-    custgroup = models.ForeignKey(Groups, models.DO_NOTHING, db_column='custgroup', verbose_name="Customer Group", default="1" )
+    custgroup = models.ForeignKey(GroupsCustomer, models.DO_NOTHING, db_column='custgroup', verbose_name="Customer Group", default="1" )
 
     class Meta:
         db_table = 'customer'
