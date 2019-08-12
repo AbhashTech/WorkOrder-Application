@@ -8,7 +8,7 @@ class GroupsCustomer(models.Model):
 
     class Meta:
         db_table = 'custgroups'
-        verbose_name = "Customer Groups"
+        verbose_name = "Customer Group"
 
     def __str__(self):
         return self.groupname

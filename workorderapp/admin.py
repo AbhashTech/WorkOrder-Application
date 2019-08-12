@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer, Person, Domain, Workorder, Updates
+from .models import Customer, Person, Domain, Workorder, Updates, GroupsCustomer
 from easy_select2 import select2_modelform, apply_select2
 
 
@@ -46,10 +46,12 @@ class UpdatesAdmin(admin.ModelAdmin):
     list_display = ('updateid', 'refdomainid', 'work_order_status', 'refwoid')
     list_filter = ('refwoid__jobstatus',)
 
+
 # Register your models here.
 admin.site.register(Customer, CustomerAdmin)
 admin.site.register(Person, PersonAdmin)
 admin.site.register(Domain, DomainAdmin)
 admin.site.register(Workorder, WorkorderAdmin)
 admin.site.register(Updates, UpdatesAdmin)
+admin.site.register(GroupsCustomer)
 admin.site.site_header = 'AbhashTech CRM Portal'
