@@ -29,7 +29,7 @@ DomainAdminForm = select2_modelform(Domain, attrs={'width': '400px'})
 class DomainAdmin(admin.ModelAdmin):
     list_display_links = ('domainaddress',)
     list_display = ('domainaddress', 'domainrefcustid')
-    search_fields = ('domainaddress', 'domainrefcustid')
+    search_fields = ('domainaddress', )
     form = DomainAdminForm
 
 
