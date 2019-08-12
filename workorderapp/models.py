@@ -25,7 +25,7 @@ class Customer(models.Model):
     NO = 'no'
     ACTIVE_CHOICE =  ((YES, 'Active'), (NO, 'Inactive'))
     custisactive = models.CharField(db_column='custIsActive', choices=ACTIVE_CHOICE, max_length=3, verbose_name='Customer\'s Status')  # Field name made lowercase.
-    custgroup = models.ForeignKey(Groups, models.DO_NOTHING, db_column='custgroup', verbose_name="Customer Group" )
+    custgroup = models.ForeignKey(Groups, models.DO_NOTHING, db_column='custgroup', verbose_name="Customer Group", default="1" )
 
     class Meta:
         db_table = 'customer'
