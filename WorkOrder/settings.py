@@ -85,6 +85,9 @@ DATABASES = {
         'PORT': os.environ.get("DJANGO_DB_PORT", "3306"),
         'USER': os.environ.get("DJANGO_DB_USER", "workorder"),
         'PASSWORD': os.environ.get("DJANGO_DB_PASS", "workorder"),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        }
     }
 }
 
